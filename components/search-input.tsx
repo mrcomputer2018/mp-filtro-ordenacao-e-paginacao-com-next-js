@@ -2,7 +2,6 @@
 
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { use } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
 export default function SearchInput() {
