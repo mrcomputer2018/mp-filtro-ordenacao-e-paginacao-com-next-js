@@ -17,6 +17,7 @@ const intl = new Intl.NumberFormat('pt-br', {
 });
 
 export default function OrdersTable({ orders } : { orders: Order[] }) {
+    
     return (
         <Table>
             <TableHeader>
