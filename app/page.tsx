@@ -23,7 +23,7 @@ export default async function Component({ searchParams }: { searchParams?: { sea
 
    const orders = response.data.data;
 
-    return 
+    return (
         <main className="container px-1 py-10 md:p-10">
             <Card>
                 <CardHeader className="px-7">
