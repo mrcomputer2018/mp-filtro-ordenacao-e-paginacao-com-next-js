@@ -21,10 +21,13 @@ export default async function Component({ searchParams }: ComponentProps) {
             search: searchParams?.search,
             status: searchParams?.status,
             sort: searchParams?.sort,
+            page: searchParams?.page,
         },
     });
 
    const orders = response.data.data;
+
+    const links = response.data.meta.links
 
     return (
         <main className="container px-1 py-10 md:p-10">
@@ -46,7 +49,7 @@ export default async function Component({ searchParams }: ComponentProps) {
                     <OrdersTable orders={orders}/>
 
                     <div className="mt-8">
-                        <Pagination />
+                        <Pagination links={links}/>
                     </div>
                 </CardContent>
             </Card>

@@ -18,5 +18,14 @@ export type ComponentProps = {
         search?: string 
         status?: Status['value']
         sort?: string
+        page?: number
     };
+}
+
+export type PaginationProps = {
+    links: {
+        url: string;
+        label: string;
+        active: boolean;
+    }[]
 }
