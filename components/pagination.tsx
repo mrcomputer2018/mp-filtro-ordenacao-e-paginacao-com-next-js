@@ -35,8 +35,17 @@ export default function Pagination({ links }: PaginationProps) {
     return (
         <PaginationComponent>
             <PaginationContent>
+                <PaginationItem>
+                    <PaginationPrevious />
+                </PaginationItem>
+
                 {links.map(
                     (link: any, index: number) => {
+
+                        if(link.label === 'Próximo &raquo;' || link.label === '&laquo; Anterior') {
+                            return null
+                        }
+
                         return (
                             <PaginationItem key={index} className="hidden md:inline-flex">
                                 <PaginationLink 
@@ -50,6 +59,10 @@ export default function Pagination({ links }: PaginationProps) {
                         )
                     }
                 )}
+
+                <PaginationItem>
+                    <PaginationNext />
+                </PaginationItem>
 
                 {/* <PaginationItem>
                     <PaginationPrevious />
