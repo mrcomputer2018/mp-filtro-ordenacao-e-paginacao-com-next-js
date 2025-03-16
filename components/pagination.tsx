@@ -37,15 +37,10 @@ export default function Pagination({ links }: PaginationProps) {
             <PaginationContent>
                 {links.map(
                     (link: any, index: number) => {
-                        
-                        if(link.label.includes('Previous') || link.label.includes('Next')) {
-                            return null
-                        }
-
                         return (
-                            <PaginationItem key={index}  className="hidden md:inline-flex p-1">
+                            <PaginationItem key={index}  className="hidden md:inline-flex">
                                 <PaginationLink 
-                                    className='cursor-pointer'
+                                    className='cursor-pointer w-auto py-1 px-3 mx-1'
                                     onClick={ () => handleClickPage(parseInt(link.label)) }
                                     isActive={link.active}
                                     dangerouslySetInnerHTML={{ __html: link.label }}
