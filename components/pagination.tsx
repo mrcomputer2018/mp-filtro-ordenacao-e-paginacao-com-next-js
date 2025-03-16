@@ -38,7 +38,7 @@ export default function Pagination({ links }: PaginationProps) {
                 {links.map(
                     (link: any, index: number) => {
                         return (
-                            <PaginationItem key={index}  className="hidden md:inline-flex">
+                            <PaginationItem key={index} className="hidden md:inline-flex">
                                 <PaginationLink 
                                     className='cursor-pointer w-auto py-1 px-3 mx-1'
                                     onClick={ () => handleClickPage(parseInt(link.label)) }
