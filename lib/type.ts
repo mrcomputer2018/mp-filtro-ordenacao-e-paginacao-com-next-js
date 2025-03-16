@@ -17,5 +17,6 @@ export type ComponentProps = {
     searchParams?: { 
         search?: string 
         status?: Status['value']
+        sort?: string
     };
 }

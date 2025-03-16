@@ -20,6 +20,7 @@ export default async function Component({ searchParams }: ComponentProps) {
         params: {
             search: searchParams?.search,
             status: searchParams?.status,
+            sort: searchParams?.sort,
         },
     });
 
