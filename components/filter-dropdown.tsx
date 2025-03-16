@@ -14,6 +14,9 @@ import { Button } from '@/components/ui/button';
 import { Filter } from 'lucide-react';
 import { useState } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
+import { Status } from '@/lib/type';
+
+
 
 export default function FilterDropdown() {
 
@@ -23,7 +26,18 @@ export default function FilterDropdown() {
     const { replace } = useRouter();
 
     function handleChangeFilterStatus(value: string) {
+
         setFilterStatus(value);
+
+        const params = new URLSearchParams(searchParams.toString());
+
+        if (value) {
+            params.set('status', value);
+        } else {
+            params.delete('status');
+        }
+
+        replace(`${pathName}?${params.toString()}`);
     }
     
     return (

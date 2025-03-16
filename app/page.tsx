@@ -10,14 +10,16 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { ComponentProps } from '@/lib/type';
 import axios from 'axios';
 
 
-export default async function Component({ searchParams }: { searchParams?: { search?: string } }) {
+export default async function Component({ searchParams }: ComponentProps) {
     // fetch data here
     const response = await axios.get('https://apis.codante.io/api/orders-api/orders', {
         params: {
             search: searchParams?.search,
+            status: searchParams?.status,
         },
     });
 

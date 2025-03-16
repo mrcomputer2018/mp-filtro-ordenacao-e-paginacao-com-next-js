@@ -8,3 +8,14 @@ export type Order = {
     created_at: Date;
     updated_at: Date;
 }
+
+export type Status = {
+    value: '' | 'pending' | 'completed';
+}
+
+export type ComponentProps = {
+    searchParams?: { 
+        search?: string 
+        status?: Status['value']
+    };
+}
