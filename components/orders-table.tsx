@@ -94,7 +94,11 @@ export default function OrdersTable({ orders } : { orders: Order[] }) {
                         </TableCell>
 
                         <TableCell>
-                            <Badge className={`text-xs`} variant="outline">
+                            <Badge 
+                            className={`${order.status === 'pending' ? 
+                            'text-xs bg-red-600 text-white' : 
+                            'text-xs bg-green-600  text-white'}`} 
+                            variant="outline">
                                 {order.status === 'pending' ? 'Pendente' : 'Completo'}
                             </Badge>
                         </TableCell>

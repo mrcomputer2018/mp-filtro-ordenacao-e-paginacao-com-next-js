@@ -29,13 +29,21 @@ export default function Pagination({ links }: PaginationProps) {
             params.delete('page');
         }
 
+        if(pageNumber > 30) {
+            return;
+        }
+
         replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
 
     return (
         <PaginationComponent>
             <PaginationContent>
-                <PaginationItem>
+                <PaginationItem
+                className={`${links[0].url ? 'cursor-pointer' : 'cursor-auto text-slate-300'}`} 
+                onClick={
+                    () => handleClickPage(searchParams.get('page') ? parseInt(searchParams.get('page') as string) - 1 : 1)
+                }>
                     <PaginationPrevious />
                 </PaginationItem>
 
@@ -60,7 +68,11 @@ export default function Pagination({ links }: PaginationProps) {
                     }
                 )}
 
-                <PaginationItem>
+                <PaginationItem 
+                className={`${links[links.length -1].url ? 'cursor-pointer' : 'cursor-auto text-slate-300'}`}
+                onClick={
+                    () => handleClickPage(searchParams.get('page') ? parseInt(searchParams.get('page') as string) + 1 : 30)
+                }>
                     <PaginationNext />
                 </PaginationItem>
 
